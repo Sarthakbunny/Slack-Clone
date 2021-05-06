@@ -8,6 +8,7 @@ import {
 import './App.css';
 import Header from './component/Header';
 import Sidebar from './component/Sidebar';
+import Chat from "./component/Chat";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           <Sidebar />
           <Switch>
             <Route path="/">
-              {/*CHat*/}
+              <Chat />
             </Route>
           </Switch>
         </AppBody>
