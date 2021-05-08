@@ -3,10 +3,11 @@ import React from 'react';
 import styled from "styled-components";
 import SidebarOption from './SidebarOption';
 import { useCollection } from "react-firebase-hooks/firestore";
-import { db } from '../firebase';
+import { auth, db } from '../firebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 function Sidebar() {
-
+    const [user] = useAuthState(auth);
     const [channels, loading, error] = useCollection(db.collection("rooms"));
 
     return (
@@ -16,7 +17,7 @@ function Sidebar() {
                     <h2>Slack-Clone</h2>
                     <h3>
                         <FiberManualRecord />
-                        Sarthak Srivastava
+                        {user.displayName}
                     </h3>
                 </SidebarInfo>
                 <Create />
